@@ -1,7 +1,8 @@
 # gui81/alfresco
 
 FROM centos:centos7
-MAINTAINER Ralf Sippl <ralf.sippl@gmail.com>
+MAINTAINER Florian JUDITH <florian.judith.b@gmail.com>
+#MAINTAINER Ralf Sippl <ralf.sippl@gmail.com>
 
 # install some necessary/desired RPMs and get updates
 RUN yum update -y
@@ -13,7 +14,10 @@ RUN yum install -y \
     libXrender \
     libXext \
     cups-libs \
-    supervisor
+    supervisor \
+    vim \
+    nano \
+    xmlstartlet
 RUN yum clean all
 
 COPY assets/install_alfresco.sh /tmp/install_alfresco.sh
@@ -36,6 +40,7 @@ COPY assets/index.jsp /alfresco/tomcat/webapps/ROOT/
 
 
 VOLUME /alfresco/tomcat/logs
+VOLUME /alfresco/alf_data
 
 EXPOSE 21 137 138 139 445 7070 8080
 CMD /usr/bin/supervisord -n

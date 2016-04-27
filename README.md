@@ -10,7 +10,7 @@ This image aims to help you run the latest version of the Alfresco Community Edi
 Run the alfresco image:
 
 ```bash
-docker run --name='alfresco' -it --rm -p 8080:8080 rsippl/alfresco
+docker run --name='alfresco' -it --rm -p 8080:8080 fjudith/alfresco
 ```
 
 **NOTE**: Please allow a few minutes for the application to start, especially if
@@ -65,7 +65,7 @@ docker run --name='alfresco' -d -p 8080:8080 \
     -e DB_HOST=mysql \
     -e DB_PASSWORD=secret \
     --link mysql:mysql \
-    rsippl/alfresco
+    fjudith/alfresco
 ```
 
 #### Options
@@ -100,14 +100,14 @@ using environment variables.
 
 ### Build from Source
 
-The source code is available at https://github.com/rsippl/docker-alfresco.
+The source code is available at https://github.com/fjudith/alfresco.
 
 Make sure your Docker host has more than 2 GB RAM available. Docker Hub uses 2 GB for automated builds which is not enough, the Alfresco installer will complain and fail. The Docker Toolbox VM also uses 2 GB by default, use VirtualBox to change it to at least 4GB.
 
 ```bash
-git clone https://github.com/rsippl/docker-alfresco.git
+git clone https://github.com/fjudith/alfresco.git
 cd docker-alfresco
-docker build --tag="$USER/alfresco" .
+docker build --tag="$(echo $USERNAME | awk '{print tolower($0)}')/alfresco" .
 ```
 
 ### References
