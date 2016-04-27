@@ -18,4 +18,4 @@ chmod +x $ALF_BIN
 
 # get rid of installer - makes image smaller
 rm $ALF_BIN
-/$ALF_BIN
+./$ALF_BIN
