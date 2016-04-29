@@ -15,6 +15,8 @@ RUN yum install -y \
     libXext \
     cups-libs \
     supervisor \
+    libGL \
+    libGLU \
     vim \
     nano \
     xmlstartlet
